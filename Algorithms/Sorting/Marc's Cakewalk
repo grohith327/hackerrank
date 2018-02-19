@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+long marcsCakewalk(vector <int> calorie) {
+    // Complete this function
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> calorie(n);
+    for(int calorie_i = 0; calorie_i < n; calorie_i++){
+       cin >> calorie[calorie_i];
+    }
+    long result = marcsCakewalk(calorie);
+    cout << result << endl;
+    return 0;
+}
