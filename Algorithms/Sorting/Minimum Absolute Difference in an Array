@@ -1,0 +1,19 @@
+#!/bin/python3
+
+import sys
+import math
+
+def minimumAbsoluteDifference(n, arr):
+    # Complete this function
+    diff = math.inf
+    arr.sort()
+    for i in range(len(arr)-1):
+        if(diff > abs(arr[i]-arr[i+1])):
+            diff = abs(arr[i]-arr[i+1])
+    return diff;
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split(' ')))
+    result = minimumAbsoluteDifference(n, arr)
+    print(result)
