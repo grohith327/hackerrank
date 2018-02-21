@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import sys
+
+def luckBalance(n, k, contests):
+    # Complete this function
+    luck = 0
+    imp_game = []
+    for i in range(n):
+        if(contests[i][1]==0):
+            luck += contests[i][0]
+        else:
+            imp_game.append(contests[i][0])
+    imp_game.sort()
+    if(k>=len(imp_game)):
+        for i in range(len(imp_game)):
+            luck += imp_game[i]
+    else:
+        val = len(imp_game) - k
+        for i in range(len(imp_game)):
+            if(val>0):
+                luck -= imp_game[i]
+                val -= 1
+            else:
+                luck += imp_game[i]
+                
+    
+    
+    return luck
+
+    
+
+if __name__ == "__main__":
+    n, k = input().strip().split(' ')
+    n, k = [int(n), int(k)]
+    contests = []
+    for contests_i in range(n):
+       contests_t = [int(contests_temp) for contests_temp in input().strip().split(' ')]
+       contests.append(contests_t)
+    result = luckBalance(n, k, contests)
+    print(result)
