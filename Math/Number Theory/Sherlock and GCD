@@ -1,0 +1,22 @@
+n = int(input())
+for i in range(n):
+    length = int(input())
+    l = list(map(int,input().strip().split(' ')))
+    if(min(l) == 1):
+        print("YES")
+        continue
+    c = 0
+    max_val = max(l)
+    j = 2
+    while(j<=max_val):
+        count = 0
+        for val in l:
+            if(val%j == 0):
+                count += 1
+        j += 1
+        if(count == length):
+            print("NO")
+            c = 1
+            break
+    if(c == 0):
+        print("YES")
