@@ -1,0 +1,22 @@
+n = int(input())
+temp = str(n)
+l = []
+while(n>1):
+    for i in range(2,n+1):
+        if(n%i == 0):
+            n=int(n/i)
+            l.append(i)
+            break
+#print(l)
+val = ''.join(map(str,l)) 
+sum1 = 0
+sum2 = 0
+for i in val:
+    sum1 += int(i)
+for i in temp:
+    sum2 += int(i)
+    
+if(sum1 == sum2):
+    print("1")
+else:
+    print("0")
