@@ -1,0 +1,42 @@
+#!/bin/python3
+
+import sys
+
+def quicksort1(q):
+    less = []
+    pivotList = []
+    greater = []
+
+    length = len(q)
+    if length <= 1:
+        return q
+    else:
+        pivotIndex = int(length / 2) - 1;
+        pivot = q[pivotIndex]
+        i = -1
+        for x in q:
+            i += 1
+            if i == pivotIndex:
+                continue
+            if x < pivot:
+                less.append(x)
+            else:
+                greater.append(x)
+        pivotList.append(pivot)
+        return quicksort1(less) + pivotList + quicksort1(greater)
+
+def findMedian(arr):
+    # Complete this function
+    l = [] 
+    l = quicksort1(arr)
+    #print(l)
+    if(len(l)%2 != 0):
+        return l[int(len(l)/2)]
+    else:
+        return ((l[int(len(l)/2)]+l[int(len(l)/2)+1])/2)
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split(' ')))
+    result = findMedian(arr)
+    print(result)
