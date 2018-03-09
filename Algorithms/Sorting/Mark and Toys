@@ -1,0 +1,51 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+
+int main() 
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int> ar;
+    for(int i=0;i<n;i++)
+        {
+        int num;
+        cin>>num;
+        ar.push_back(num);
+    }
+    sort(ar.begin(),ar.end());
+    int count=0,amt_pur=0;
+    int pos;
+    for(int i=0;i<n;i++)
+        {
+        if(i==0 && ar[i]>k)
+            {
+            break;
+        }
+        amt_pur+=ar[i];
+        count++;
+        pos=i;
+        if(amt_pur>=k)
+            {
+            break;
+        }
+    }
+    if(amt_pur<=k)
+        {
+        cout<<count;
+    }
+    else if(amt_pur>k)
+        {
+        amt_pur-=ar[pos];
+        cout<<count-1;
+    }
+    else
+        ;
+        
+    return 0;
+}
