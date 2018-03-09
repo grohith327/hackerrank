@@ -1,0 +1,42 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    cin>>n;
+    //cout<<n;
+    int ar[n][2];
+    for(int i=0;i<n;i++)
+        {
+        int a,b;
+        ar[i][0]=i+1;
+        cin>>a>>b;
+        ar[i][1]=a+b;
+    }
+   /* for(int i=0;i<n;i++)
+        {
+        cout<<ar[i][0]<<" "<<ar[i][1]<<endl;
+    }*/
+    for(int i=0;i<n;i++)
+        {
+        int small=ar[0][1];
+        int pos=0;
+        for(int j=0;j<n;j++)
+            {
+            if(small>ar[j][1])
+                {
+                small=ar[j][1];
+                pos=j;
+            }
+        }
+        cout<<ar[pos][0]<<" ";
+        ar[pos][1]=10000000;
+    }
+    return 0;
+}
