@@ -1,0 +1,21 @@
+n = int(input())
+for i in range(0,n):
+    l = list(map(int,input().strip().split(' ')))
+    if(l[0] == 1 or l[2] == 1):
+        print("1")
+        continue
+    if(l[1]<0):
+        print("0")
+        continue
+    val = l[0]**l[1]
+    min_val = val
+    rem = val%l[2]
+    min_val -= rem
+    max_val = val+l[2]
+    rem = max_val%l[2]
+    max_val -= rem 
+    if(val-min_val<max_val-val):
+        print(min_val)
+    elif(val-min_val>max_val-val):
+        print(max_val)
+    
