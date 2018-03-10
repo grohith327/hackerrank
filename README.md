@@ -1,2 +1,2 @@
 # hackerrank
-Solutions to questions in hackerrank website
+Solutions to questions from hackerrank in C++ or Python 
