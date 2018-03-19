@@ -1,0 +1,34 @@
+n = int(input())
+maths = []
+phy = []
+chem = []
+for _ in range(n):
+    a = list(map(int,input().strip().split('\t')))
+    maths.append(a[0])
+    phy.append(a[1])
+    chem.append(a[2])
+    
+maths_sq = []
+phy_sq = []
+chem_sq = []
+maths_phy = []
+phy_chem = []
+maths_chem = []
+
+for i in range(n):
+    maths_sq.append(maths[i]**2)
+    phy_sq.append(phy[i]**2)
+    chem_sq.append(chem[i]**2)
+    
+    maths_phy.append(maths[i]*phy[i])
+    phy_chem.append(phy[i]*chem[i])
+    maths_chem.append(maths[i]*chem[i])
+
+
+    
+gamma_1 = (n*sum(maths_phy)-sum(maths)*sum(phy))/((n*sum(maths_sq)-(sum(maths)**2))*(n*sum(phy_sq)-(sum(phy))**2))**(0.5)
+print(round(gamma_1,2))
+gamma_2 = (n*sum(phy_chem)-sum(chem)*sum(phy))/((n*sum(phy_sq)-(sum(phy)**2))*(n*sum(chem_sq)-(sum(chem))**2))**(0.5)
+print(round(gamma_2,2))
+gamma_3 = (n*sum(maths_chem)-sum(maths)*sum(chem))/((n*sum(maths_sq)-(sum(maths)**2))*(n*sum(chem_sq)-(sum(chem))**2))**(0.5)
+print(round(gamma_3,2))
