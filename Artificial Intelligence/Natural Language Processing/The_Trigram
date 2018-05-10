@@ -1,0 +1,33 @@
+#!/bin/python3
+
+import sys
+
+s = sys.stdin.read()
+s = s.strip().split('.')
+
+strings = []
+for val in s:
+    val = val.split(' ')
+    strings.append(val)
+
+strings.remove(strings[-1])
+for i in range(len(strings)):
+    if('' in strings[i]):
+        strings[i].remove('')
+for i in range(len(strings)):
+    for j in range(len(strings[i])):
+        strings[i][j] = strings[i][j].strip('\n')
+
+trigrams = []
+for row in strings:
+    for i in range(len(row)-2):
+        trigrams.append(row[i]+' '+row[i+1]+' '+row[i+2])
+count = []    
+for i in range(len(trigrams)):
+    c = 0
+    for j in range(len(trigrams)):
+        if(trigrams[i] == trigrams[j]):
+            c += 1
+    count.append(c)
+pos = count.index(max(count))
+print(trigrams[pos].lower())
